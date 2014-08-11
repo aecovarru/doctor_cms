@@ -40,4 +40,9 @@ a:hover {}
 /* Navigation */
 #navigation ul { list-style: none; margin: 0; padding: 0; }
 #navigation ul li { margin-bottom: 0.5em; }
-#navigation ul ul { margin: 0.5em 0 0 1em; font-size: 0}
+#navigation ul ul { margin: 0.5em 0 0 1em; font-size: 0.9em; }
+#navigation a { text-decoration: none; padding: 1px 3px; }
+#navigation a:hover { background: #F2DC87; }
+
+/* Content */
+#content h2 { color: #4C2516; }
