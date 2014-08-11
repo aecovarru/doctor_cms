@@ -1,0 +1,41 @@
+<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="accounts show">
+	<h2>Show Account</h2>
+
+	<table summary="Subject detail view">
+		<tr>
+			<th>Name</th>
+			<td><%= @account.name %></td>
+		</tr>
+		<tr>
+			<th>Address</th>
+			<td><%= @account.address %></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><%= @account.email %></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><%= @account.phone %></td>
+		</tr>
+		<tr>
+			<th>Fax</th>
+			<td><%= @account.fax %></td>
+		</tr>
+		<tr>
+			<th>Account Type</th>
+			<td><%= @account.account_type %></td>
+		</tr>
+		<tr>
+			<th>Created</th>
+			<td><%= @account.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @account.updated_at %></td>
+		</tr>
+	</table>
+
+</div>

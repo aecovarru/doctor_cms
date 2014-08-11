@@ -1,0 +1,29 @@
+<table summary="Subject form fields">
+	<tr>
+		<th><%= f.label(:name) %></th>
+		<td><%= f.text_field(:name) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:address) %></th>
+		<td><%= f.text_field(:address) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:email) %></th>
+		<td><%= f.text_field(:email) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:phone) %></th>
+		<td><%= f.text_field(:phone) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:fax) %></th>
+		<td><%= f.text_field(:fax) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:account_type, "Account Type")%></th>
+		<td>
+			<%= f.radio_button(:account_type, "Found") %>Found
+			<%= f.radio_button(:account_type, "Pursuing") %>Pursuing
+		</td>
+	</tr>
+</table>

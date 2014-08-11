@@ -1,0 +1,26 @@
+<% @page_title = "Accounts" %>
+
+<div class="accounts index">
+	<h2>Accounts</h2>
+
+	<%= link_to("Add New Account", {:action => 'new'}, :class => 'action new') %>
+
+	<table class="listing" summary="Account list">
+		<tr class="header">
+			<th>&nbsp;</th>
+			<th>Account</th>
+			<th>Actions</th>
+		</tr>
+		<% @accounts.each do |account| %>
+		<tr>
+			<td><%= account.id %></td>
+			<td><%= account.name %></td>
+			<td class="actions">
+				<%= link_to("Show", {:action => 'show', :id => account.id}, :class => 'action show') %>
+				<%= link_to("Edit", {:action => 'edit', :id => account.id}, :class => 'action edit') %>
+				<%= link_to("Delete", {:action => 'delete', :id => account.id}, :class => 'action delete') %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
