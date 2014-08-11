@@ -1,2 +1,0 @@
-class TabsController < ApplicationController
-end
