@@ -1,3 +1,5 @@
+<%= link_to("<<Back to Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
+
 <% @page_title = "Accounts" %>
 
 <div class="accounts index">
@@ -5,6 +7,7 @@
 
 	<%= link_to("Add New Account", {:action => 'new'}, :class => 'action new') %>
 
+	<div><%= pluralize(@accounts.size, 'account') %> found</div>
 	<table class="listing" summary="Account list">
 		<tr class="header">
 			<th>&nbsp;</th>
@@ -16,6 +19,7 @@
 			<td><%= account.id %></td>
 			<td><%= account.name %></td>
 			<td class="actions">
+				<%= link_to("View Notes", {:controller => 'notes', :account_id => account.id}, :class => 'action show') %>
 				<%= link_to("Show", {:action => 'show', :id => account.id}, :class => 'action show') %>
 				<%= link_to("Edit", {:action => 'edit', :id => account.id}, :class => 'action edit') %>
 				<%= link_to("Delete", {:action => 'delete', :id => account.id}, :class => 'action delete') %>

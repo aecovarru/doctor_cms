@@ -1,0 +1,27 @@
+<%= link_to("<<Back to Accounts", {:controller => 'accounts'}, :class => 'back-link') %>
+
+<% @page_title = "Notes" %>
+
+<div class="notes index">
+	<h2><%= @account.name + " " %>Notes</h2>
+
+	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id}, :class => 'action new') %>
+
+	<div><%= pluralize(@notes.size, 'note') %> found</div>
+	<table class="listing" summary="Note list">
+		<tr class="header">
+			<th><%= @account.name + " " %>Notes</th>
+			<th>Actions</th>
+		</tr>
+		<% @notes.each do |note| %>
+		<tr>
+			<td><%= note.created_at %></td>
+			<td class="actions">
+				<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id}, :class => 'action show') %>
+				<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id}, :class => 'action edit') %>
+				<%= link_to("Delete", {:action => 'delete', :id => note.id, :account_id => @account.id}, :class => 'action delete') %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>

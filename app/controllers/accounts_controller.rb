@@ -51,7 +51,12 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    account = Account.find(params[:id]).destroy
+    account = Account.find(params[:id])
+    notes = account.notes
+    notes.each do |note|
+      note.destroy
+    end
+    account.destroy
     flash[:notice] = "Account '#{account.name}' deleted successfully."
     redirect_to(:action => 'index')
   end

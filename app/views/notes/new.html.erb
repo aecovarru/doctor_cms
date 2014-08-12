@@ -1,0 +1,15 @@
+<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id}, :class => 'back-link') %>
+
+<div class="notes new">
+	<h2>Create Note</h2>
+
+	<%= form_for(:note, :url => {:action => 'create', :account_id => @account.id}) do |f| %>
+
+		<%= render(:partial => "form", :locals => {:f => f}) %>
+
+		<div class="form-buttons">
+			<%= submit_tag("Create Note") %>
+		</div>
+
+	<% end %>
+</div>

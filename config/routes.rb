@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-
-  root "accounts#index"
+  root "access#index"
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
