@@ -2,6 +2,7 @@ class NotesController < ApplicationController
 
 	layout 'admin'
 
+	before_action :confirm_logged_in
 	before_action :find_account
 	def index
 		@notes = @account.notes
