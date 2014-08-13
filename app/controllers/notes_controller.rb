@@ -13,8 +13,7 @@ class NotesController < ApplicationController
 	end
 
 	def new
-		user = AdminUser.find_by_id(session[:user_id])
-		name = user.first_name + " " + user.last_name
+		name = "HI"
 		@note = Note.new({:account_id => @account.id, :date => Time.now.strftime("%B %d, %Y"), :created_by => name})
 	end
 
