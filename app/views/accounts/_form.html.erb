@@ -22,8 +22,7 @@
 	<tr>
 		<th><%= f.label(:account_type, "Account Type")%></th>
 		<td>
-			<%= f.radio_button(:account_type, "Found") %>Found
-			<%= f.radio_button(:account_type, "Pursuing") %>Pursuing
+			<%= f.radio_button(:account_type, "Active") %>Active<%= f.radio_button(:account_type, "Hot") %>Hot<%= f.radio_button(:account_type, "No Contact Yet") %>No Contact Yet
 		</td>
 	</tr>
 </table>

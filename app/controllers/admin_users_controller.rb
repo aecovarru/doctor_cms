@@ -49,6 +49,18 @@ class AdminUsersController < ApplicationController
   private
 
   def admin_user_params
-  	params.require(:admin_user).permit(:first_name, :last_name, :email, :username, :password)
+  	params.require(:admin_user).permit(:first_name, :last_name, :email, :username, :password, :administrator)
   end
+
+  def confirm_logged_in
+    user = AdminUser.find_by_id(session[:user_id])
+    unless session[:user_id] && user.administrator
+      flash[:notice] = "You do not have the correct access rights."
+      redirect_to(:controller => 'access', :action => 'index')
+      return false # halts the before_action
+    else
+      return true
+    end
+  end
+
 end

@@ -10,12 +10,14 @@
 	<div><%= pluralize(@notes.size, 'note') %> found</div>
 	<table class="listing" summary="Note list">
 		<tr class="header">
-			<th><%= @account.name + " " %>Notes</th>
+			<th>Created By</th>
+			<th>Date Created</th>
 			<th>Actions</th>
 		</tr>
 		<% @notes.each do |note| %>
 		<tr>
-			<td><%= note.created_at %></td>
+			<td><%= note.created_by %></td>
+			<td><%= note.date %></td>
 			<td class="actions">
 				<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id}, :class => 'action show') %>
 				<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id}, :class => 'action edit') %>

@@ -3,7 +3,13 @@
 		<td><%= f.hidden_field(:account_id) %></td>
 	</tr>
 	<tr>
-		<th><%= f.label(:log) %></th>
-		<td><%= f.text_area(:log, :size => "40x5") %></td>
+		<td><%= f.hidden_field(:date) %></td>
+	</tr>
+	<tr>
+		<td><%= f.hidden_field(:created_by) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:note) %></th>
+		<td><%= f.text_area(:note, :size => "40x5") %></td>
 	</tr>
 </table>

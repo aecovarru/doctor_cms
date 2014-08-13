@@ -30,13 +30,16 @@ ActiveRecord::Schema.define(version: 20140811220328) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
+    t.boolean  "administrator",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "notes", force: true do |t|
     t.integer  "account_id"
-    t.text     "log"
+    t.string   "created_by"
+    t.string   "date"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

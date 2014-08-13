@@ -13,7 +13,9 @@ class NotesController < ApplicationController
 	end
 
 	def new
-		@note = Note.new({:account_id => @account.id})
+		user = AdminUser.find_by_id(session[:user_id])
+		name = user.first_name + " " + user.last_name
+		@note = Note.new({:account_id => @account.id, :date => Time.now.strftime("%B %d, %Y"), :created_by => name})
 	end
 
 	def create
@@ -53,7 +55,7 @@ class NotesController < ApplicationController
 	private
 
 	def note_params
-		params.require(:note).permit(:account_id, :log)
+		params.require(:note).permit(:account_id, :note, :date, :created_by)
 	end
 
 	def find_account
