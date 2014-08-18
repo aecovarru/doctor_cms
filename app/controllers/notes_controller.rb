@@ -6,6 +6,15 @@ class NotesController < ApplicationController
 	before_action :find_account
 	def index
 		@notes = @account.notes
+		@notes = @notes.where(:date => params[:date])
+	end
+
+	def date
+		notes = @account.notes.order("created_at ASC")
+		@s1 = Set.new
+		notes.each do |note|
+			@s1.add(note.date)
+		end
 	end
 
 	def show

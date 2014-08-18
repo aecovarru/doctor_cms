@@ -1,0 +1,11 @@
+<% @page_title = "Date Menu" %>
+
+<div class="menu">
+	<h2>Menu</h2>
+	<div class = "identity">Logged in as: <%= session[:username] %></div>
+	<ul>
+		<% @s1.each do |date| %>
+		<li><%= link_to(date, :controller => 'notes', :account_id => @account.id, :date => date) %></li>
+		<% end %>
+	</ul>
+</div>
