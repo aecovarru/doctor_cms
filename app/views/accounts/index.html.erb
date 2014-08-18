@@ -11,14 +11,15 @@
 	<table class="listing" summary="Account list">
 		<tr class="header">
 			<th>&nbsp;</th>
-			<th>Account</th>
+			<th>Name</th>
+			<th>Account Type</th>
 			<th>Actions</th>
 		</tr>
 		<% @accounts.each do |account| %>
 		<tr>
 			<td><%= account.id %></td>
 			<td><%= account.name %></td>
-			<td class="center"><%= true ? 'Yes' : 'No' %></td>
+			<td class="center"><%= account_status_tag(account.account_type) %></td>
 			<td class="actions">
 				<%= link_to("View Notes", {:controller => 'notes', :action => 'date', :account_id => account.id}, :class => 'action show') %>
 				<%= link_to("Show", {:action => 'show', :id => account.id}, :class => 'action show') %>
