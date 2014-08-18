@@ -1,11 +1,11 @@
-<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id}, :class => 'back-link') %>
+<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id, :date => @note.date}, :class => 'back-link') %>
 
 <div class="notes show">
 	<h2>Show Note</h2>
 
 	<table summary="Note detail view">
 		<tr>
-			<th>Log</th>
+			<th>Note</th>
 			<td><%= @note.note %></td>
 		</tr>
 	</table>

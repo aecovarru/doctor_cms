@@ -1,9 +1,13 @@
-<%= link_to("<<Back to Accounts", {:controller => 'accounts'}, :class => 'back-link') %>
+<%= link_to("<<Back to Dates", {:controller => 'notes', :action => 'date', :account_id => @account.id}, :class => 'back-link') %>
 
 <% @page_title = "Notes" %>
+<% if !@notes.empty? %>
+	<% date = @notes.first.date %>
+<% end %>
 
 <div class="notes index">
 	<h2><%= @account.name + " " %>Notes</h2>
+	<h3><%= date %></h3>
 
 	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id}, :class => 'action new') %>
 
@@ -11,13 +15,11 @@
 	<table class="listing" summary="Note list">
 		<tr class="header">
 			<th>Created By</th>
-			<th>Date Created</th>
 			<th>Actions</th>
 		</tr>
 		<% @notes.each do |note| %>
 		<tr>
 			<td><%= note.created_by %></td>
-			<td><%= note.date %></td>
 			<td class="actions">
 				<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id}, :class => 'action show') %>
 				<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id}, :class => 'action edit') %>

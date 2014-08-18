@@ -1,8 +1,10 @@
 <% @page_title = "Date Menu" %>
+<%= link_to("<<Back to Accounts", {:controller => 'accounts'}, :class => 'back-link') %>
 
 <div class="menu">
 	<h2>Menu</h2>
 	<div class = "identity">Logged in as: <%= session[:username] %></div>
+	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id}, :class => 'action new') %>
 	<ul>
 		<% @s1.each do |date| %>
 		<li><%= link_to(date, :controller => 'notes', :account_id => @account.id, :date => date) %></li>
