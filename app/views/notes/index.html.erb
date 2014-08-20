@@ -6,7 +6,7 @@
 	<h2><%= @account.name + " " %>Notes</h2>
 	<h3><%= params[:date] %></h3>
 
-	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id, :date => params[:date]}, :class => 'action new') %>
+	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Note", {:action => 'new', :account_id => @account.id, :date => params[:date]}, :class => 'action new') %>
 
 	<div><%= pluralize(@notes.size, 'note') %> found</div>
 	<table class="listing" summary="Note list">

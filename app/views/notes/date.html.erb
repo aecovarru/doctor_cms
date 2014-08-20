@@ -4,7 +4,7 @@
 <div class="menu">
 	<h2>Date Menu</h2>
 	<div class = "identity">Logged in as: <%= session[:username] %></div>
-	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id, :date => 'date'}, :class => 'action new') %>
+	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Note", {:action => 'new', :account_id => @account.id, :date => 'date'}, :class => 'action new') %>
 	<ul>
 		<% if !@s1.empty? %>
 			<li><%= link_to("Show All", :controller => 'notes', :account_id => @account.id, :date => "Show All") %></li>
