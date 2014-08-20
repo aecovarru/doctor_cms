@@ -70,6 +70,6 @@ class AccountsController < ApplicationController
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type, :business, :affiliate_number, :website, :created_at)
+      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type, :business, :affiliate_number, :website)
     end
 end

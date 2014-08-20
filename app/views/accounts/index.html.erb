@@ -5,7 +5,7 @@
 <div class="accounts index">
 	<h2>Accounts</h2>
 
-	<%= link_to("Add New Account", {:action => 'new'}, :class => 'action new') %>
+	<%= link_to("Add New Account", {:controller => 'account', :action => 'new'}, :class => 'action new') %>
 
 	<div><%= pluralize(@accounts.size, 'account') %> found</div>
 	<table class="listing" summary="Account list">
