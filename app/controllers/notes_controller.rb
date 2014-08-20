@@ -6,7 +6,9 @@ class NotesController < ApplicationController
 	before_action :find_account
 	def index
 		@notes = @account.notes
-		@notes = @notes.where(:date => params[:date])
+		if params[:date] != "Show All"
+			@notes = @notes.where(:date => params[:date])
+		end
 	end
 
 	def date
@@ -23,8 +25,12 @@ class NotesController < ApplicationController
 
 	def new
 		user = AdminUser.find_by_username(session[:username])
-		name = user.first_name + " " + user.last_name
-		@note = Note.new({:account_id => @account.id, :date => Time.now.strftime("%B %d, %Y"), :created_by => name})
+		if user.first_name != nil && user.last_name != nil
+			name = user.first_name + " " + user.last_name
+		else
+			name = ""
+		end
+		@note = Note.new(:created_by => name, :date => Time.now.strftime("%B %d, %Y"), :account_id => @account.id)
 	end
 
 	def create

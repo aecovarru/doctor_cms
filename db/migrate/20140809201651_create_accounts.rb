@@ -7,7 +7,10 @@ class CreateAccounts < ActiveRecord::Migration
     	t.string "phone"
     	t.string "fax"
       t.string "account_type"
-    	t.timestamps
+      t.string "business"
+      t.string "affiliate_number"
+      t.string "website"
+      t.timestamps
     end
   end
 

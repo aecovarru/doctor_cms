@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20140811220328) do
     t.string   "phone"
     t.string   "fax"
     t.string   "account_type"
+    t.string   "business"
+    t.string   "affiliate_number"
+    t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

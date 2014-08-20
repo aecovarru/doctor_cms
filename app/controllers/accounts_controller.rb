@@ -40,6 +40,7 @@ class AccountsController < ApplicationController
     # Update the object
     if @account.update_attributes(account_params)
     # If update succeeds, redirect to the index action
+      @account.save
       flash[:notice] = "Account updated successfully."
       redirect_to(:action => 'show', :id => @account.id)
     else
@@ -69,6 +70,6 @@ class AccountsController < ApplicationController
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type)
+      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type, :business, :affiliate_number, :website, :created_at)
     end
 end

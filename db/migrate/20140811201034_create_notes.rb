@@ -5,7 +5,6 @@ class CreateNotes < ActiveRecord::Migration
       t.string "created_by"
       t.string "date"
     	t.text "note"
-
       t.timestamps
     end
   end

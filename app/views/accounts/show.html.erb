@@ -9,12 +9,16 @@
 			<td><%= @account.name %></td>
 		</tr>
 		<tr>
-			<th>Address</th>
-			<td><%= @account.address %></td>
+			<th>Affiliate Code</th>
+			<td><%= @account.affiliate_number %></td>
 		</tr>
 		<tr>
-			<th>Email</th>
-			<td><%= @account.email %></td>
+			<th>Business</th>
+			<td><%= @account.business %></td>
+		</tr>
+		<tr>
+			<th>Address</th>
+			<td><%= @account.address %></td>
 		</tr>
 		<tr>
 			<th>Phone</th>
@@ -25,15 +29,19 @@
 			<td><%= @account.fax %></td>
 		</tr>
 		<tr>
-			<th>Account Type</th>
-			<td><%= @account.account_type %></td>
+			<th>Email</th>
+			<td><%= @account.email %></td>
 		</tr>
 		<tr>
-			<th>Created</th>
+			<th>Website</th>
+			<td><%= @account.website %></td>
+		</tr>
+		<tr>
+			<th>Created At</th>
 			<td><%= @account.created_at %></td>
 		</tr>
 		<tr>
-			<th>Updated</th>
+			<th>Last Updated</th>
 			<td><%= @account.updated_at %></td>
 		</tr>
 	</table>

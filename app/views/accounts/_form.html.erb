@@ -4,12 +4,16 @@
 		<td><%= f.text_field(:name) %></td>
 	</tr>
 	<tr>
-		<th><%= f.label(:address) %></th>
-		<td><%= f.text_field(:address) %></td>
+		<th><%= f.label(:affiliate_number, "Affiliate Code") %></th>
+		<td><%= f.text_field(:affiliate_number) %></td>
 	</tr>
 	<tr>
-		<th><%= f.label(:email) %></th>
-		<td><%= f.text_field(:email) %></td>
+		<th><%= f.label(:business, "Name of Business") %></th>
+		<td><%= f.text_field(:business) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:address) %></th>
+		<td><%= f.text_field(:address) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:phone) %></th>
@@ -18,6 +22,14 @@
 	<tr>
 		<th><%= f.label(:fax) %></th>
 		<td><%= f.text_field(:fax) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:email) %></th>
+		<td><%= f.text_field(:email) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:website) %></th>
+		<td><%= f.text_field(:website) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:account_type, "Account Type")%></th>

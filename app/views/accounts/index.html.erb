@@ -10,15 +10,17 @@
 	<div><%= pluralize(@accounts.size, 'account') %> found</div>
 	<table class="listing" summary="Account list">
 		<tr class="header">
-			<th>&nbsp;</th>
-			<th>Name</th>
-			<th>Account Type</th>
+			<th><div style="width: 130px" >Affiliate Number</div></th>
+			<th><div style="width: 130px" >Name</div></th>
+			<th><div style="width: 130px" >Business</th>
+			<th><div style="width: 20px" >Type</th>
 			<th>Actions</th>
 		</tr>
 		<% @accounts.each do |account| %>
-		<tr>
-			<td><%= account.id %></td>
-			<td><%= account.name %></td>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td><div style="width: 130px" ><%= account.affiliate_number %></div></td>
+			<td><div style="width: 130px" ><%= account.name %></div></td>
+			<td><div style="width: 130px" ><%= account.business %></div></td>
 			<td class="center"><%= account_status_tag(account.account_type) %></td>
 			<td class="actions">
 				<%= link_to("View Notes", {:controller => 'notes', :action => 'date', :account_id => account.id}, :class => 'action show') %>
