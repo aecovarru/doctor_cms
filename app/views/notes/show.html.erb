@@ -1,5 +1,9 @@
 <% @page_title = "Notes" %>
 
+<% if !params[:date] %>
+<% params[:date] = 'Show All'%>
+<% end %>
+
 <%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id, :date => params[:date]}, :class => 'back-link') %>
 
 <div class="notes show">

@@ -5,6 +5,9 @@ class NotesController < ApplicationController
 	before_action :confirm_logged_in
 	before_action :find_account
 	def index
+		if params[:date] == "date"
+			redirect_to(:action => 'date', :account_id => @account.id)
+		end
 		@notes = @account.notes
 		if params[:date] != "Show All"
 			@notes = @notes.where(:date => params[:date])
@@ -34,10 +37,15 @@ class NotesController < ApplicationController
 	end
 
 	def create
+		if params[:date] == 'date'
+			date = 'Show All'
+		else
+			date = params[:date]
+		end
 		@note = Note.new(note_params)
 		if @note.save
 			flash[:notice] = "Note created successfully."
-			redirect_to(:action => 'index', :account_id => @account.id, :date => Time.now.strftime("%B %d, %Y"))
+			redirect_to(:action => 'index', :account_id => @account.id, :date => date)
 		else
 			render('new')
 		end
@@ -51,7 +59,7 @@ class NotesController < ApplicationController
 		@note = Note.find(params[:id])
 		if @note.update_attributes(note_params)
 			flash[:notice] = "Note updated successfully."
-			redirect_to(:action => 'show', :id => @note.id, :account_id => @account.id, :date => Time.now.strftime("%B %d, %Y"))
+			redirect_to(:action => 'show', :id => @note.id, :account_id => @account.id, :date => params[:date])
 		else
 			render('edit')
 		end
@@ -65,7 +73,7 @@ class NotesController < ApplicationController
 		note = Note.find(params[:id])
 		note.destroy
 		flash[:notice] = "Note destroyed successfully."
-		redirect_to(:action => 'index', :account_id => @account.id, :date => note.date)
+		redirect_to(:action => 'index', :account_id => @account.id, :date => params[:date])
 	end
 
 	private
