@@ -1,4 +1,4 @@
-<%= link_to("<< Back to List", {:action => 'index', :account_id => @account.id, :date => @note.date}, :class => 'back-link') %>
+<%= link_to("<< Back to List", {:action => 'index', :account_id => @account.id, :date => params[:date]}, :class => 'back-link') %>
 
 <div class="notes delete">
 	<h2>Delete Note</h2>
@@ -7,7 +7,7 @@
 
 		<p>Are you sure you want to permanently delete this note?</p>
 
-		<p class="reference-name"><%= @note.created_at %></p>
+		<p class="reference-name"><%=l @note.created_at %></p>
 
 		<div class="form-buttons">
 			<%= submit_tag("Delete Note") %>

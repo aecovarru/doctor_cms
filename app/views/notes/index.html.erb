@@ -21,9 +21,9 @@
 			<td><div style="width: 500px" ><%= truncate(note.note, :length => 74, :ommission => "...") %></div></td>
 			<td class="actions">
 				<div style="width: 180px" >
-					<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id}, :class => 'action show') %>
-					<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id}, :class => 'action edit') %>
-					<%= link_to("Delete", {:action => 'delete', :id => note.id, :account_id => @account.id}, :class => 'action delete') %>
+					<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id, :date => params[:date]}, :class => 'action show') %>
+					<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id, :date => params[:date]}, :class => 'action edit') %>
+					<%= link_to("Delete", {:action => 'delete', :id => note.id, :account_id => @account.id, :date => params[:date]}, :class => 'action delete') %>
 				</div>
 			</td>
 		</tr>
