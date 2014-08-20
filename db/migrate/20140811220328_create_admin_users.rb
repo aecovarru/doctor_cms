@@ -1,8 +1,8 @@
 class CreateAdminUsers < ActiveRecord::Migration
   def up
     create_table :admin_users do |t|
-    	t.string "first_name"
-    	t.string "last_name"
+    	t.string "first_name", :default => ""
+    	t.string "last_name", :default => ""
     	t.string "email"
     	t.string "username"
     	t.string "password_digest"

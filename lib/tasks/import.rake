@@ -1,7 +1,10 @@
 namespace :import do
 
 	task :test => :environment do
-		puts Time.now.strftime("%B %d, %Y, %I:%M %p")
+		string = nil
+		if string.empty?
+			puts "HELLO"
+		end
 	end
 
 end

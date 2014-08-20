@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="header">
-			<h1>Doctor CMS Admin</h1>
+			<h1>Doctor CMS <%= @page_title || "Admin" %></h1>
 		</div>
 		<div id="main">
 			<% if !flash[:notice].blank? %>

@@ -25,10 +25,10 @@ class NotesController < ApplicationController
 
 	def new
 		user = AdminUser.find_by_username(session[:username])
-		if user.first_name != nil && user.last_name != nil
-			name = user.first_name + " " + user.last_name
+		if user.first_name.empty? && user.last_name.empty?
+			name = session[:username]
 		else
-			name = ""
+			name = user.first_name + " " + user.last_name
 		end
 		@note = Note.new(:created_by => name, :date => Time.now.strftime("%B %d, %Y"), :account_id => @account.id)
 	end

@@ -1,10 +1,10 @@
-<% @page_title = "Date Menu" %>
+<% @page_title = "Notes" %>
 <%= link_to("<<Back to Accounts", {:controller => 'accounts'}, :class => 'back-link') %>
 
 <div class="menu">
-	<h2>Dates</h2>
+	<h2>Date Menu</h2>
 	<div class = "identity">Logged in as: <%= session[:username] %></div>
-	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id}, :class => 'action new') %>
+	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id, :date => 'Show All'}, :class => 'action new') %>
 	<ul>
 		<% if !@s1.empty? %>
 			<li><%= link_to("Show All", :controller => 'notes', :account_id => @account.id, :date => "Show All") %></li>

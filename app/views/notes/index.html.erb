@@ -1,12 +1,12 @@
-<%= link_to("<<Back to Dates", {:controller => 'notes', :action => 'date', :account_id => @account.id}, :class => 'back-link') %>
-
 <% @page_title = "Notes" %>
+
+<%= link_to("<<Back to Dates", {:controller => 'notes', :action => 'date', :account_id => @account.id}, :class => 'back-link') %>
 
 <div class="notes index">
 	<h2><%= @account.name + " " %>Notes</h2>
 	<h3><%= params[:date] %></h3>
 
-	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id}, :class => 'action new') %>
+	<%= link_to("Add New Note", {:action => 'new', :account_id => @account.id, :date => params[:date]}, :class => 'action new') %>
 
 	<div><%= pluralize(@notes.size, 'note') %> found</div>
 	<table class="listing" summary="Note list">
