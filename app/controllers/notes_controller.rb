@@ -33,7 +33,7 @@ class NotesController < ApplicationController
 		else
 			name = user.first_name + " " + user.last_name
 		end
-		@note = Note.new(:created_by => name, :date => Time.now.strftime("%B %d, %Y"), :account_id => @account.id)
+		@note = Note.new(:created_by => name, :date => Time.zone.now.strftime("%B %d, %Y"), :account_id => @account.id)
 	end
 
 	def create
