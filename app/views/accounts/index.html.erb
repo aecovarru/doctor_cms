@@ -14,6 +14,7 @@
 			<th><div style="width: 130px" >Name</div></th>
 			<th><div style="width: 130px" >Business</th>
 			<th><div style="width: 20px" >Type</th>
+			<th><div style="width: 20px" >Type</th>
 			<th>Actions</th>
 		</tr>
 		<% @accounts.each do |account| %>
@@ -22,6 +23,7 @@
 			<td><div style="width: 130px" ><%= account.name %></div></td>
 			<td><div style="width: 130px" ><%= account.business %></div></td>
 			<td class="center"><%= account_status_tag(account.account_type) %></td>
+			<td class="center"><%= account_status_tag(account.other_type) %></td>
 			<td class="actions">
 				<%= link_to("View Notes", {:controller => 'notes', :action => 'date', :account_id => account.id}, :class => 'action show') %>
 				<%= link_to("Show", {:action => 'show', :id => account.id}, :class => 'action show') %>

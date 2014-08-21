@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140811220328) do
     t.string   "phone"
     t.string   "fax"
     t.string   "account_type"
+    t.string   "other_type"
     t.string   "business"
     t.string   "affiliate_number"
     t.string   "website"
@@ -28,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140811220328) do
   end
 
   create_table "admin_users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",      default: ""
+    t.string   "last_name",       default: ""
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"

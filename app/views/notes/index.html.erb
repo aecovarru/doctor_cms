@@ -12,12 +12,14 @@
 	<table class="listing" summary="Note list">
 		<tr class="header">
 			<th>Created By</th>
+			<th>Date Created</th>
 			<th>Note</th>
 			<th>Actions</th>
 		</tr>
 		<% @notes.each do |note| %>
 		<tr class="<%= cycle('odd', 'even') %>">
 			<td><div style="width: 120px" ><%= note.created_by %></div></td>
+			<td><div style="width: 120px" ><%= note.date %></div></td>
 			<td><div style="width: 500px" ><%= truncate(note.note, :length => 74, :ommission => "...") %></div></td>
 			<td class="actions">
 				<div style="width: 180px" >

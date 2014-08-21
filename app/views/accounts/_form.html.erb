@@ -37,4 +37,10 @@
 			<%= f.radio_button(:account_type, "Active") %>Active<%= f.radio_button(:account_type, "Hot") %>Hot<%= f.radio_button(:account_type, "No Contact Yet") %>No Contact Yet
 		</td>
 	</tr>
+	<tr>
+		<th><%= f.label(:other_type, "Other Type")%></th>
+		<td>
+			<%= f.radio_button(:other_type, "Active") %>Active<%= f.radio_button(:other_type, "Hot") %>Hot<%= f.radio_button(:other_type, "No Contact Yet") %>No Contact Yet
+		</td>
+	</tr>
 </table>
