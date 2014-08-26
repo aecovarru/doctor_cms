@@ -6,7 +6,7 @@
 <div class="accounts index">
 	<h2><%= params[:state] + " " %>Accounts</h2>
 
-	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Account", new_account_path(:state => params[:state]), :class => 'action new') %>
+	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Account",{:action => 'new', :state => params[:state]}, :class => 'action new') %>
 
 	<div><%= pluralize(@accounts.size, 'account') %> found</div>
 	<table class="listing" summary="Account list">
