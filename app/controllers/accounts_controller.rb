@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-    @accounts = Account.sorted
+    @accounts = Account.where(:state => params[:state]).sorted
   end
 
   def show
@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = Account.new
+    @account = Account.new(:state => params[:state])
   end
 
   def create
@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
     if @account.save
     # If save succeeds, redirect to the index action
       flash[:notice] = "Account created successfully."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :state => @account.state)
     else
     # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -37,12 +37,13 @@ class AccountsController < ApplicationController
   def update
     # Find an exisiting object using form parameters
     @account = Account.find(params[:id])
+    puts params[:state]
     # Update the object
     if @account.update_attributes(account_params)
     # If update succeeds, redirect to the index action
       @account.save
       flash[:notice] = "Account updated successfully."
-      redirect_to(:action => 'show', :id => @account.id)
+      redirect_to(account_path(@account.id, :state => params[:state]))
     else
     # If update fails, redisplay the form so user can fix problems
       render('edit')
@@ -61,7 +62,11 @@ class AccountsController < ApplicationController
     end
     account.destroy
     flash[:notice] = "Account '#{account.name}' deleted successfully."
-    redirect_to(:action => 'index')
+    redirect_to(:action => 'index', :state => params[:state])
+  end
+
+  def state
+    @states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
   end
 
   private
@@ -70,6 +75,6 @@ class AccountsController < ApplicationController
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type, :other_type, :business, :affiliate_number, :website)
+      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type, :other_type, :business, :affiliate_number, :website, :state, :doctor)
     end
 end

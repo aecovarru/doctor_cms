@@ -1,11 +1,11 @@
 <% @page_title = "Notes" %>
 
-<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id, :date => params[:date]}, :class => 'back-link') %>
+<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id, :date => params[:date], :state => params[:state]}, :class => 'back-link') %>
 
 <div class="notes edit">
 	<h2>Update Note</h2>
 
-	<%= form_for(:note, :url => {:action => 'update', :id => @note.id, :account_id => @account.id, :date => params[:date]}) do |f| %>
+	<%= form_for(:note, :url => {:action => 'update', :id => @note.id, :account_id => @account.id, :date => params[:date], :state => params[:state]}) do |f| %>
 
 		<%= render(:partial => "form", :locals => {:f => f}) %>
 

@@ -4,6 +4,14 @@ Rails.application.routes.draw do
 
   get 'admin', :to => "access#index"
 
+  get 'accounts/state', :to => "accounts#state"
+
+  resources :accounts do
+    member do
+      get :delete
+    end
+  end
+
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.

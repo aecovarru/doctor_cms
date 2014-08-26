@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20140811220328) do
     t.string   "business"
     t.string   "affiliate_number"
     t.string   "website"
+    t.string   "state"
+    t.string   "doctor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -4,7 +4,7 @@
 <% params[:date] = 'Show All'%>
 <% end %>
 
-<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id, :date => params[:date]}, :class => 'back-link') %>
+<%= link_to("<<Back to List", {:action => 'index', :account_id => @account.id, :date => params[:date], :state => params[:state]}, :class => 'back-link') %>
 
 <div class="notes show">
 	<h2>Show Note</h2>

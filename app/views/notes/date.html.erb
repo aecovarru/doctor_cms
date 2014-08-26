@@ -1,5 +1,5 @@
 <% @page_title = "Notes" %>
-<%= link_to("<<Back to Accounts", {:controller => 'accounts'}, :class => 'back-link') %>
+<%= link_to("<<Back to Accounts", {:controller => 'accounts', :state => params[:state]}, :class => 'back-link') %>
 
 <div class="menu">
 	<h2>Date Menu</h2>
@@ -7,12 +7,12 @@
 	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Note", {:action => 'new', :account_id => @account.id, :date => 'date'}, :class => 'action new') %>
 	<ul>
 		<% if !@s1.empty? %>
-			<li><%= link_to("Show All", :controller => 'notes', :account_id => @account.id, :date => "Show All") %></li>
+			<li><%= link_to("Show All", :controller => 'notes', :account_id => @account.id, :date => "Show All", :state => params[:state]) %></li>
 		<% else %>
 			<h3>No Notes Created</h3>
 		<% end %>
 		<% @s1.each do |date| %>
-		<li><%= link_to(date, :controller => 'notes', :account_id => @account.id, :date => date) %></li>
+		<li><%= link_to(date, :controller => 'notes', :account_id => @account.id, :date => date, :state => params[:state]) %></li>
 		<% end %>
 	</ul>
 </div>

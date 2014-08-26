@@ -1,11 +1,11 @@
 <% @page_title = "Accounts" %>
 
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to List", {:action => 'index', :state => params[:state]}, :class => 'back-link') %>
 
 <div class="accounts delete">
 	<h2>Delete Account</h2>
 
-	<%= form_for(:account, :url => {:action => 'destroy', :id => @account.id}) do |f| %>
+	<%= form_for(:account, :url => account_path(@account.id, :state => params[:state]), :html => { :method => :delete}) do |f| %>
 
 		<p>Are you sure you want to permanently delete this account?</p>
 

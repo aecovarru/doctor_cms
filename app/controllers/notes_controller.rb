@@ -45,7 +45,7 @@ class NotesController < ApplicationController
 		@note = Note.new(note_params)
 		if @note.save
 			flash[:notice] = "Note created successfully."
-			redirect_to(:action => 'index', :account_id => @account.id, :date => date)
+			redirect_to(:action => 'index', :account_id => @account.id, :date => date, :state => params[:state])
 		else
 			render('new')
 		end
@@ -59,7 +59,7 @@ class NotesController < ApplicationController
 		@note = Note.find(params[:id])
 		if @note.update_attributes(note_params)
 			flash[:notice] = "Note updated successfully."
-			redirect_to(:action => 'show', :id => @note.id, :account_id => @account.id, :date => params[:date])
+			redirect_to(:action => 'show', :id => @note.id, :account_id => @account.id, :date => params[:date], :state => params[:state])
 		else
 			render('edit')
 		end
@@ -73,7 +73,7 @@ class NotesController < ApplicationController
 		note = Note.find(params[:id])
 		note.destroy
 		flash[:notice] = "Note destroyed successfully."
-		redirect_to(:action => 'index', :account_id => @account.id, :date => params[:date])
+		redirect_to(:action => 'index', :account_id => @account.id, :date => params[:date], :state => params[:state])
 	end
 
 	private

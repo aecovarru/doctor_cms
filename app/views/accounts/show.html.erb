@@ -1,6 +1,6 @@
 <% @page_title = "Accounts" %>
 
-<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<<Back to List", {:action => 'index', :state => @account.state}, :class => 'back-link') %>
 
 <div class="accounts show">
 	<h2>Show Account</h2>
@@ -37,6 +37,10 @@
 		<tr>
 			<th>Website</th>
 			<td><%= @account.website %></td>
+		</tr>
+		<tr>
+			<th>State</th>
+			<td><%= @account.state %></td>
 		</tr>
 		<tr>
 			<th>Created At</th>

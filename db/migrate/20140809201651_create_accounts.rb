@@ -11,6 +11,8 @@ class CreateAccounts < ActiveRecord::Migration
       t.string "business"
       t.string "affiliate_number"
       t.string "website"
+      t.string "state"
+      t.string "doctor"
       t.timestamps
     end
   end

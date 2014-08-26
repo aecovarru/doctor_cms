@@ -1,12 +1,12 @@
 <% @page_title = "Notes" %>
 
-<%= link_to("<<Back to Dates", {:controller => 'notes', :action => 'date', :account_id => @account.id}, :class => 'back-link') %>
+<%= link_to("<<Back to Dates", {:controller => 'notes', :action => 'date', :account_id => @account.id, :state => params[:state]}, :class => 'back-link') %>
 
 <div class="notes index">
 	<h2><%= @account.name + " " %>Notes</h2>
 	<h3><%= params[:date] %></h3>
 
-	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Note", {:action => 'new', :account_id => @account.id, :date => params[:date]}, :class => 'action new') %>
+	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Note", {:action => 'new', :account_id => @account.id, :date => params[:date], :state => params[:state]}, :class => 'action new') %>
 
 	<div><%= pluralize(@notes.size, 'note') %> found</div>
 	<table class="listing" summary="Note list">
@@ -23,9 +23,9 @@
 			<td><div style="width: 500px" ><%= truncate(note.note, :length => 74, :ommission => "...") %></div></td>
 			<td class="actions">
 				<div style="width: 180px" >
-					<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id, :date => params[:date]}, :class => 'action show') %>
-					<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id, :date => params[:date]}, :class => 'action edit') %>
-					<%= link_to("Delete", {:action => 'delete', :id => note.id, :account_id => @account.id, :date => params[:date]}, :class => 'action delete') %>
+					<%= link_to("Show", {:action => 'show', :id => note.id, :account_id => @account.id, :date => params[:date], :state => params[:state]}, :class => 'action show') %>
+					<%= link_to("Edit", {:action => 'edit', :id => note.id, :account_id => @account.id, :date => params[:date], :state => params[:state]}, :class => 'action edit') %>
+					<%= link_to("Delete", {:action => 'delete', :id => note.id, :account_id => @account.id, :date => params[:date], :state => params[:state]}, :class => 'action delete') %>
 				</div>
 			</td>
 		</tr>
