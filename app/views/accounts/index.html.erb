@@ -1,12 +1,13 @@
 <% @page_title = "Accounts" %>
 
 <%= link_to("<<Back to Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %> </br>
-<%= link_to("<<Back to States", {:controller => 'accounts', :action => 'state'}, :class => 'back-link') %>
+<%= link_to("<<Back to Doctors", {:controller => 'accounts', :action => 'doctor'}, :class => 'back-link') %></br>
+<%= link_to("<<Back to States", {:controller => 'accounts', :action => 'state', :doctor => params[:doctor]}, :class => 'back-link') %>
 
 <div class="accounts index">
 	<h2><%= params[:state] + " " %>Accounts</h2>
 
-	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Account",{:action => 'new', :state => params[:state]}, :class => 'action new') %>
+	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Account",{:action => 'new', :state => params[:state], :doctor => params[:doctor]}, :class => 'action new') %>
 
 	<div><%= pluralize(@accounts.size, 'account') %> found</div>
 	<table class="listing" summary="Account list">
@@ -26,10 +27,10 @@
 			<td class="center"><%= account_status_tag(account.account_type) %></td>
 			<td class="center"><%= account_status_tag(account.other_type) %></td>
 			<td class="actions">
-				<%= link_to("View Notes", {:controller => 'notes', :action => 'date', :account_id => account.id, :state => params[:state]}, :class => 'action show') %>
-				<%= link_to("Show", account_path(account.id, :state => params[:state]), :class => 'action show') %>
-				<%= link_to("Edit", edit_account_path(account.id, :state => params[:state]), :class => 'action edit') %>
-				<%= link_to("Delete", delete_account_path(account.id, :state => params[:state]), :class => 'action delete') %>
+				<%= link_to("View Notes", {:controller => 'notes', :action => 'date', :account_id => account.id}, :class => 'action show') %>
+				<%= link_to("Show", account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action show') %>
+				<%= link_to("Edit", edit_account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action edit') %>
+				<%= link_to("Delete", delete_account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action delete') %>
 			</td>
 		</tr>
 		<% end %>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'admin', :to => "access#index"
 
+  get 'accounts/doctor', :to => "accounts#doctor"
+
   get 'accounts/state', :to => "accounts#state"
 
   resources :accounts do

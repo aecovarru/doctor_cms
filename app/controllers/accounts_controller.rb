@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-    @accounts = Account.where(:state => params[:state]).sorted
+    @accounts = Account.where(:state => params[:state], :doctor => params[:doctor]).sorted
   end
 
   def show
@@ -13,7 +13,7 @@ class AccountsController < ApplicationController
   end
 
   def new
-    @account = Account.new(:state => params[:state])
+    @account = Account.new(:state => params[:state], :doctor => params[:doctor])
   end
 
   def create
@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
     if @account.save
     # If save succeeds, redirect to the index action
       flash[:notice] = "Account created successfully."
-      redirect_to(:action => 'index', :state => @account.state)
+      redirect_to(:action => 'index', :state => @account.state, :doctor => @account.doctor)
     else
     # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -62,7 +62,11 @@ class AccountsController < ApplicationController
     end
     account.destroy
     flash[:notice] = "Account '#{account.name}' deleted successfully."
-    redirect_to(:action => 'index', :state => params[:state])
+    redirect_to(:action => 'index', :state => params[:state], :doctor => params[:doctor])
+  end
+
+  def doctor
+    @doctors = ["Naturopathic Doctors", "Veterinarians"]
   end
 
   def state

@@ -1,11 +1,11 @@
 <% @page_title = "Accounts" %>
 
-<%= link_to("<<Back to List", {:action => 'index', :state => params[:state]}, :class => 'back-link') %>
+<%= link_to("<<Back to List", {:action => 'index', :state => params[:state], :doctor => params[:doctor]}, :class => 'back-link') %>
 
 <div class="accounts new">
 	<h2>Create Account</h2>
 
-	<%= form_for(@account, :state => params[:state]) do |f| %>
+	<%= form_for(@account, :state => params[:state], :doctor => params[:doctor]) do |f| %>
 
 		<%= render(:partial => "form", :locals => {:f => f}) %>
 
