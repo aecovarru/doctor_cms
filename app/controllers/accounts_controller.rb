@@ -3,6 +3,7 @@ class AccountsController < ApplicationController
   layout "admin"
 
   before_action :confirm_logged_in
+  before_action :confirm_admin, :only => [:delete, :destroy]
 
   def index
     @accounts = Account.where(:state => params[:state], :doctor => params[:doctor]).sorted
@@ -80,5 +81,16 @@ class AccountsController < ApplicationController
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
       params.require(:account).permit(:name, :address, :email, :phone, :fax, :business, :affiliate_number, :website, :state, :doctor, :letter, :certificate, :pads, :sent, :emailed, :call, :sold)
+    end
+
+    def confirm_admin
+      user = AdminUser.find_by_id(session[:user_id])
+      unless session[:user_id] && user.administrator
+        flash[:notice] = "You do not have the correct access rights."
+        redirect_to(:controller => 'access', :action => 'index')
+        return false # halts the before_action
+      else
+        return true
+      end
     end
 end
