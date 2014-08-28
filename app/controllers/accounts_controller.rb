@@ -66,7 +66,7 @@ class AccountsController < ApplicationController
   end
 
   def doctor
-    @doctors = ["Naturopathic Doctors", "Veterinarians"]
+    @doctors = ["Naturopathic Doctors", "Colon Hydrotherapists"]
   end
 
   def state
