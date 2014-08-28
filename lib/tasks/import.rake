@@ -1,7 +1,8 @@
 namespace :import do
 
 	task :test => :environment do
-		puts Time.zone.now.strftime("%m/%d/%y")
+		require 'nokogiri'
+		require 'open-uri'
 	end
 
 end
