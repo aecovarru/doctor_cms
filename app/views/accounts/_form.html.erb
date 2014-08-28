@@ -38,15 +38,45 @@
 		<td><%= f.text_field(:website) %></td>
 	</tr>
 	<tr>
-		<th><%= f.label(:account_type, "Steps")%></th>
+		<th><%= f.label(:letter, "Letter")%></th>
 		<td>
-			<%= f.radio_button(:account_type, "Purple") %>Letter<%= f.radio_button(:account_type, "Yellow") %>Hot<%= f.radio_button(:account_type, "Orange") %>No Contact Yet
+			<%= f.radio_button(:letter, "Nothing") %>False<%= f.radio_button(:letter, "Purple") %>True
 		</td>
 	</tr>
 	<tr>
-		<th><%= f.label(:other_type, "Sent")%></th>
+		<th><%= f.label(:certificate, "Certificate")%></th>
 		<td>
-			<%= f.radio_button(:other_type, "Blue") %>Active<%= f.radio_button(:other_type, "Green") %>Hot<%= f.radio_button(:other_type, "Red") %>No Contact Yet
+			<%= f.radio_button(:certificate, "Nothing") %>False<%= f.radio_button(:certificate, "Yellow") %>True
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:pads, "Pads")%></th>
+		<td>
+			<%= f.radio_button(:pads, "Nothing") %>False<%= f.radio_button(:pads, "Black") %>True
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:sent, "Sent")%></th>
+		<td>
+			<%= f.radio_button(:sent, "Nothing") %>False<%= f.radio_button(:sent, "Green") %>True
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:emailed, "Emailed")%></th>
+		<td>
+			<%= f.radio_button(:emailed, "Nothing") %>False<%= f.radio_button(:emailed, "Orange") %>True
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:call, "Called")%></th>
+		<td>
+			<%= f.radio_button(:call, "Nothing") %>False<%= f.radio_button(:call, "Blue") %>True
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:sold, "Sold")%></th>
+		<td>
+			<%= f.radio_button(:sold, "Nothing") %>False<%= f.radio_button(:sold, "Red") %>True
 		</td>
 	</tr>
 </table>

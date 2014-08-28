@@ -1,4 +1,4 @@
-<% @page_title = "States" %>
+<% @page_title = "#{params[:doctor]} States" %>
 
 <%= link_to("<<Back to Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %></br>
 
@@ -7,7 +7,8 @@
 
 
 <div class="menu">
-	<h2><%= @page_title %></h2>
+	<h2><%= params[:doctor] %></h2>
+	<h2><%= "States" %></h2>
 	<div class = "identity">Logged in as: <%= session[:username] %></div>
 	<ul>
 		<% @states.each do |state| %>

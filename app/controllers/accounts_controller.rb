@@ -43,7 +43,7 @@ class AccountsController < ApplicationController
     # If update succeeds, redirect to the index action
       @account.save
       flash[:notice] = "Account updated successfully."
-      redirect_to(account_path(@account.id, :state => params[:state]))
+      redirect_to(:action => 'index', :state => @account.state, :doctor => @account.doctor)
     else
     # If update fails, redisplay the form so user can fix problems
       render('edit')
@@ -66,7 +66,7 @@ class AccountsController < ApplicationController
   end
 
   def doctor
-    @doctors = ["Naturopathic Doctors", "Colon Hydrotherapists"]
+    @doctors = ["Naturopathic Doctors", "Colon Hydrotherapists", "Primal Doctors", "Affiliates"]
   end
 
   def state
@@ -79,6 +79,6 @@ class AccountsController < ApplicationController
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:account).permit(:name, :address, :email, :phone, :fax, :account_type, :other_type, :business, :affiliate_number, :website, :state, :doctor)
+      params.require(:account).permit(:name, :address, :email, :phone, :fax, :business, :affiliate_number, :website, :state, :doctor, :letter, :certificate, :pads, :sent, :emailed, :call, :sold)
     end
 end

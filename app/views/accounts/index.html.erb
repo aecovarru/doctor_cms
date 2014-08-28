@@ -1,10 +1,11 @@
-<% @page_title = "Accounts" %>
+<% @page_title = "#{params[:state]} Accounts" %>
 
 <%= link_to("<<Back to Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %> </br>
 <%= link_to("<<Back to Doctors", {:controller => 'accounts', :action => 'doctor'}, :class => 'back-link') %></br>
 <%= link_to("<<Back to States", {:controller => 'accounts', :action => 'state', :doctor => params[:doctor]}, :class => 'back-link') %>
 
 <div class="accounts index">
+	<h2><%= params[:doctor] %></h2>
 	<h2><%= params[:state] + " " %>Accounts</h2>
 
 	<%= link_to(image_tag('plus_sign.png', :size => '11x11', :alt => '+') + " Add New Account",{:action => 'new', :state => params[:state], :doctor => params[:doctor]}, :class => 'action new') %>
@@ -12,20 +13,30 @@
 	<div><%= pluralize(@accounts.size, 'account') %> found</div>
 	<table class="listing" summary="Account list">
 		<tr class="header">
-			<th><div style="width: 130px" >Affiliate Number</div></th>
-			<th><div style="width: 130px" >Name</div></th>
-			<th><div style="width: 130px" >Business</th>
+			<th><div style="width: 40px" >Affiliate #</div></th>
+			<th><div style="width: 100px" >Name</div></th>
+			<th><div style="width: 100px" >Business</th>
+			<th><div style="width: 23px" >Letter</th>
+			<th><div style="width: 20px" >Cert</th>
+			<th><div style="width: 20px" >Pads</th>
 			<th><div style="width: 20px" >Sent</th>
-			<th><div style="width: 20px" >Email</th>
+			<th><div style="width: 22px" >Email</th>
+			<th><div style="width: 20px" >Call</th>
+			<th><div style="width: 20px" >Sold</th>
 			<th>Actions</th>
 		</tr>
 		<% @accounts.each do |account| %>
 		<tr class="<%= cycle('odd', 'even') %>">
-			<td><div style="width: 130px" ><%= account.affiliate_number %></div></td>
-			<td><div style="width: 130px" ><%= account.name %></div></td>
-			<td><div style="width: 130px" ><%= account.business %></div></td>
-			<td class="center"><%= account_status_tag(account.account_type) %></td>
-			<td class="center"><%= account_status_tag(account.other_type) %></td>
+			<td><div style="width: 40px" ><%= account.affiliate_number %></div></td>
+			<td><div style="width: 100px" ><%= account.name %></div></td>
+			<td><div style="width: 100px" ><%= account.business %></div></td>
+			<td class="center"><%= account_status_tag(account.letter) %></td>
+			<td class="center"><%= account_status_tag(account.certificate) %></td>
+			<td class="center"><%= account_status_tag(account.pads) %></td>
+			<td class="center"><%= account_status_tag(account.sent) %></td>
+			<td class="center"><%= account_status_tag(account.emailed) %></td>
+			<td class="center"><%= account_status_tag(account.call) %></td>
+			<td class="center"><%= account_status_tag(account.sold) %></td>
 			<td class="actions">
 				<%= link_to("View Notes", {:controller => 'notes', :action => 'index',:account_id => account.id, :date => "Show All"}, :class => 'action show') %>
 				<%= link_to("Show", account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action show') %>
