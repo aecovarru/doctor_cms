@@ -3,12 +3,16 @@ module AccountsHelper
 		options[:true_text] ||= ''
 		options[:false_text] ||= ''
 
-		if string == "Active"
+		if string == "Green"
 			content_tag(:span, options[:true_text], :class => 'status green')
-		elsif string == "Hot"
+		elsif string == "Red"
 			content_tag(:span, options[:false_text], :class => 'status red')
-		elsif string == "No Contact Yet"
+		elsif string == "Blue"
 			content_tag(:span, options[:false_text], :class => 'status blue')
+		elsif string == "Yellow"
+			content_tag(:span, options[:false_text], :class => 'status yellow')
+		elsif string == "Purple"
+			content_tag(:span, options[:false_text], :class => 'status yellow')
 		end
 	end
 end
