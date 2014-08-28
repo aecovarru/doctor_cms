@@ -27,7 +27,7 @@
 			<td class="center"><%= account_status_tag(account.account_type) %></td>
 			<td class="center"><%= account_status_tag(account.other_type) %></td>
 			<td class="actions">
-				<%= link_to("View Notes", {:controller => 'notes', :account_id => account.id}, :date => "Show All", :class => 'action show') %>
+				<%= link_to("View Notes", {:controller => 'notes', :action => 'index',:account_id => account.id, :date => "Show All"}, :class => 'action show') %>
 				<%= link_to("Show", account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action show') %>
 				<%= link_to("Edit", edit_account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action edit') %>
 				<%= link_to("Delete", delete_account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action delete') %>
