@@ -56,7 +56,7 @@ span.status.blue { background: blue; color: blue; }
 span.status.yellow { background: yellow; color: yellow; }
 span.status.purple { background: purple; color: purple; }
 span.status.orange { background: orange; color: orange; }
-span.status.orange { background: black; color: black; }
+span.status.black { background: black; color: black; }
 
 /* Errors */
 .fieldWithErrors { }

@@ -15,6 +15,8 @@ module AccountsHelper
 			content_tag(:span, options[:false_text], :class => 'status purple')
 		elsif string == "Orange"
 			content_tag(:span, options[:false_text], :class => 'status orange')
+		elsif string == "Black"
+			content_tag(:span, options[:false_text], :class => 'status black')
 		end
 	end
 end
