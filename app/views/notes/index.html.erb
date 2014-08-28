@@ -1,6 +1,6 @@
 <% @page_title = "Notes" %>
 
-<%= link_to("<<Back to Dates", {:controller => 'notes', :action => 'date', :account_id => @account.id}, :class => 'back-link') %>
+<%= link_to("<<Back to Accounts", {:controller => 'accounts', :state => @account.state, :doctor => @account.doctor}, :class => 'back-link') %>
 
 <div class="notes index">
 	<h2><%= @account.name + " " %>Notes</h2>
