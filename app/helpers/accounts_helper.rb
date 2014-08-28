@@ -12,7 +12,9 @@ module AccountsHelper
 		elsif string == "Yellow"
 			content_tag(:span, options[:false_text], :class => 'status yellow')
 		elsif string == "Purple"
-			content_tag(:span, options[:false_text], :class => 'status yellow')
+			content_tag(:span, options[:false_text], :class => 'status purple')
+		elsif string == "Orange"
+			content_tag(:span, options[:false_text], :class => 'status orange')
 		end
 	end
 end
