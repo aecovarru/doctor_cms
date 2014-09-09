@@ -30,8 +30,12 @@
 		<td><%= f.text_field(:fax) %></td>
 	</tr>
 	<tr>
-		<th><%= f.label(:email) %></th>
+		<th><%= f.label(:email, "Email 1") %></th>
 		<td><%= f.text_field(:email) %></td>
+	</tr>
+	<tr>
+		<th><%= f.label(:email2, "Email 2") %></th>
+		<td><%= f.text_field(:email2) %></td>
 	</tr>
 	<tr>
 		<th><%= f.label(:website) %></th>
@@ -68,21 +72,27 @@
 		</td>
 	</tr>
 	<tr>
-		<th><%= f.label(:emailed, "Emailed")%></th>
-		<td>
-			<%= f.radio_button(:emailed, "Nothing") %>No<%= f.radio_button(:emailed, "Orange") %>Yes
-		</td>
-	</tr>
-	<tr>
 		<th><%= f.label(:call, "Called")%></th>
 		<td>
 			<%= f.radio_button(:call, "Nothing") %>No<%= f.radio_button(:call, "Blue") %>Yes
 		</td>
 	</tr>
 	<tr>
+		<th><%= f.label(:emailed, "Emailed")%></th>
+		<td>
+			<%= f.radio_button(:emailed, "Nothing") %>No<%= f.radio_button(:emailed, "Orange") %>Yes
+		</td>
+	</tr>
+	<tr>
 		<th><%= f.label(:sold, "Sold")%></th>
 		<td>
 			<%= f.radio_button(:sold, "Nothing") %>No<%= f.radio_button(:sold, "Red") %>Yes
+		</td>
+	</tr>
+	<tr>
+		<th><%= f.label(:SMAT, "SMAT")%></th>
+		<td>
+			<%= f.radio_button(:SMAT, "Nothing") %>No<%= f.radio_button(:SMAT, "Yellow") %>Yes
 		</td>
 	</tr>
 </table>

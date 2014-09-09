@@ -80,7 +80,7 @@ class AccountsController < ApplicationController
       # same as using "params[:subject]", except that it:
       # - raises an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:account).permit(:name, :address, :email, :phone, :fax, :business, :affiliate_number, :website, :state, :doctor, :letter, :certificate, :pads, :sent, :aff, :emailed, :call, :sold)
+      params.require(:account).permit(:name, :address, :email, :phone, :fax, :business, :affiliate_number, :website, :state, :doctor, :letter, :certificate, :pads, :sent, :aff, :emailed, :call, :sold, :email2, :SMAT)
     end
 
     def confirm_admin

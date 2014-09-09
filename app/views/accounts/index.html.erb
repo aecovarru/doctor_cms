@@ -17,14 +17,15 @@
 			<th><div style="width: 40px" >Affiliate #</div></th>
 			<th><div style="width: 100px" >Name</div></th>
 			<th><div style="width: 100px" >Business</th>
-			<th><div style="width: 23px" >Letter</th>
+			<th><div style="width: 28px" >Letter</th>
 			<th><div style="width: 20px" >Cert</th>
-			<th><div style="width: 20px" >Pads</th>
+			<th><div style="width: 22px" >Pads</th>
 			<th><div style="width: 20px" >Sent</th>
-			<th><div style="width: 22px" >Aff</th>
-			<th><div style="width: 22px" >Email</th>
+			<th><div style="width: 15px" >Aff</th>
 			<th><div style="width: 20px" >Call</th>
+			<th><div style="width: 25px" >Email</th>
 			<th><div style="width: 20px" >Sold</th>
+			<th><div style="width: 25px" >SMAT</th>
 			<th>Actions</th>
 		</tr>
 		<% @accounts.each do |account| %>
@@ -37,9 +38,10 @@
 			<td class="center"><%= account_status_tag(account.pads) %></td>
 			<td class="center"><%= account_status_tag(account.sent) %></td>
 			<td class="center"><%= account_status_tag(account.aff) %></td>
-			<td class="center"><%= account_status_tag(account.emailed) %></td>
 			<td class="center"><%= account_status_tag(account.call) %></td>
+			<td class="center"><%= account_status_tag(account.emailed) %></td>
 			<td class="center"><%= account_status_tag(account.sold) %></td>
+			<td class="center"><%= account_status_tag(account.SMAT) %></td>
 			<td class="actions">
 				<%= link_to("View Notes", {:controller => 'notes', :action => 'index',:account_id => account.id, :date => "Show All"}, :class => 'action show') %>
 				<%= link_to("Show", account_path(account.id, :state => params[:state], :doctor => params[:doctor]), :class => 'action show') %>
