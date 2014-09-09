@@ -62,6 +62,12 @@
 		</td>
 	</tr>
 	<tr>
+		<th><%= f.label(:aff, "Aff")%></th>
+		<td>
+			<%= f.radio_button(:aff, "Nothing") %>No<%= f.radio_button(:aff, "Purple") %>Yes
+		</td>
+	</tr>
+	<tr>
 		<th><%= f.label(:emailed, "Emailed")%></th>
 		<td>
 			<%= f.radio_button(:emailed, "Nothing") %>No<%= f.radio_button(:emailed, "Orange") %>Yes
