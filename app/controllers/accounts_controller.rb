@@ -6,7 +6,11 @@ class AccountsController < ApplicationController
   before_action :confirm_admin, :only => [:delete, :destroy]
 
   def index
-    @accounts = Account.where(:state => params[:state], :doctor => params[:doctor]).sorted
+    if params[:doctor] == "Colon Hydrotherapists" 
+      @accounts = Account.where(:state => params[:state], :doctor => params[:doctor]).sorted_business
+    else
+      @accounts = Account.where(:state => params[:state], :doctor => params[:doctor]).sorted_name
+    end      
   end
 
   def show
